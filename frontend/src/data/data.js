@@ -1,5 +1,12 @@
 import slider from '../assets/slider.jpg'
 import slide2 from '../assets/slide2.png'
+import shirt from '../assets/shirt (1).jpg'
+import longwear from '../assets/longwear.jpg'
+import jackets from '../assets/jackets.jpg'
+
+
+
+
 export const sliderData = [
     {
         key:0,
@@ -15,5 +22,24 @@ export const sliderData = [
         img: slide2,
         bgColor : "bg-teal-50"
     },
+
+];
+
+export const categories = [
+    {
+        id:1,
+        title:"SUMMER OFFER",
+        img:shirt
+    },
+    {
+        id:2,
+        title:"WINTER OFFER",
+        img:longwear,
+    },
+    {       
+        id:2,
+        title:"WINTER OFFER",
+        img:jackets,
+    }
 
 ];
