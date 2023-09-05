@@ -1,6 +1,6 @@
 import ArrowBackIosNewOutlinedIcon from '@mui/icons-material/ArrowBackIosNewOutlined';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
-import { sliderData } from '../data/sliderData';
+import { sliderData } from '../data/data';
 import { useState } from 'react';
 
 
@@ -28,7 +28,7 @@ function Slider() {
                 className='flex items-center top-1/2 z-50 left-0 absolute ml-2 bg-slate-50 rounded-full p-5 opacity-[50%] cursor-pointer hover:opacity-[100%]'>
                 <ArrowBackIosNewOutlinedIcon />
             </div>
-            <div className='h-full flex overflow-x-hidden '>
+            <div className='h-full flex overflow-x-hidden overflow-y-hidden '>
                 {
                      sliderData.map(item => (
                         <div className={`flex flex-shrink-0 items-center h-full w-full  ${item.bgColor}`} style={{ transform: `translateX(-${cursor * 100}%)`, transition: 'transform 1.5s ease' }}  key={item.key}>
