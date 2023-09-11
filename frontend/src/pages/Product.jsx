@@ -9,7 +9,14 @@ import { useState } from 'react'
 function Product() {
 
     const [count,setCount]=useState(0);
-
+    const handlClick = () => {
+        if(count==0){
+            setCount(count)
+        }
+        else{
+            setCount(count-1)
+        }
+    }
 
 
   return (
@@ -56,7 +63,7 @@ function Product() {
                 <div className='flex  items-center mt-8'>
                     <div className='flex items-center mr-8'>
                         <div 
-                        onClick={()=>(setCount(count-1))}
+                        onClick={handlClick}
                         className=' text-[40px] font-semibold mr-3 cursor-pointer'>-</div>
                         <div className=' text-[20px] font-light mr-3 border-2 border-gray-500 px-4 rounded-lg mt-2'>{count}</div>
                         <div 
