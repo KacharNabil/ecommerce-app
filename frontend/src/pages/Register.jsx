@@ -1,9 +1,9 @@
-import React from 'react'
+ 
 
 function Register ()  {
   return (
     <div className='bg-teal-500 flex justify-center items-center h-screen'>
-    <div className='bg-white w-[35%] p-8 rounded-xl shadow-xl '>
+    <div className='bg-white w-[95%] md:w-[35%] p-8 rounded-xl shadow-xl '>
         <form action="" method="post"     >
           
           <h1 className='font-bold text-[20px] text-center my-2'>Welcome  To <span className='text-gray-300'>Snow</span>Shop</h1>
@@ -18,7 +18,10 @@ function Register ()  {
             data in accordance with the <b className='cursor-pointer'>PRIVACY POLICY</b></span>
         
           </div>
-          <button type="submit" className='bg-teal-500 rounded-md p-2 my-3 w-[30%]  text-white font-semibold'>CREATE</button>
+          <div className="flex justify-center md:justify-start">
+          <button type="submit" className='bg-teal-500 rounded-md p-2 my-3 w-[30%]   text-white font-semibold'>CREATE</button>
+          </div>
+          
         </form>
         
     </div>

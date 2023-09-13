@@ -1,10 +1,9 @@
 
-import React from 'react';
 
 function Login() {
   return (
-    <div className='bg-blue-300 flex justify-center items-center h-screen'>
-      <div className='bg-white w-[30%] p-8 rounded-xl shadow-xl'>
+    <div className='bg-blue-300 flex  justify-center items-center h-screen'>
+      <div className='bg-white md:w-[30%] p-8 rounded-xl shadow-xl'>
           <form action="" method="post"     >
             <div  className='flex flex-col justify-center  mx-auto '>
             <h1 className='font-bold text-[20px] text-center my-2'>Welcome Back To <span className='text-gray-300'>Snow</span>Shop</h1>

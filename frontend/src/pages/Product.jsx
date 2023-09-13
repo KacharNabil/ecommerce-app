@@ -24,7 +24,7 @@ function Product() {
         
         <Announcement/>
         <NavBar/>
-        <div className='flex pt-8 px-8 '>
+        <div className='flex flex-col md:flex-row pt-8 px-8 '>
             <div className='flex-1'>
             <img src={productimage}  className='w-100 h-[60%] mx-auto' />
             </div>
@@ -60,7 +60,7 @@ function Product() {
                         </select>
                     </div>
                 </div>
-                <div className='flex  items-center mt-8'>
+                <div className='flex flex-col md:flex-row md:items-center  mt-8'>
                     <div className='flex items-center mr-8'>
                         <div 
                         onClick={handlClick}

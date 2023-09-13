@@ -13,7 +13,7 @@ function Cart() {
         <NavBar/>
         
         <h1 className='text-center font-light text-[30px] '>YOUR PANEL</h1>
-        <div className="flex justify-between items-center mt-2 p-5">
+        <div className="flex flex-col gap-4 md:flex-row md:gap-0 justify-between items-center mt-2 p-5">
             <button className="border-2 border-gray-500 py-1 px-2.5 rounded-lg shadow-md hover:text-white hover:bg-teal-500 hover:border-none hover:scale-105 hover:ease-linear hover:duration-300 font-normal">CONTINUE SHOPPING</button>
             <div>
                 <span className="mr-2 underline underline-offset-auto">Shopping Bag(2)</span>
@@ -21,10 +21,10 @@ function Cart() {
             </div>
             <button className="bg-black text-white py-1 px-2.5 rounded-lg shadow-md font-normal">CHECKOUT NOW</button>
         </div>
-        <div className="flex  ">
-            <div className="flex-auto w-[75%]  ">
-                <div className="flex items-center justify-center border-b-2 border-gray-200 pb-2">
-                    <div className="w-[20%] flex-auto p-4 mr-10">
+        <div className="flex flex-col md:flex-row  ">
+            <div className="flex-auto w-[100%] md:w-[80%]  ">
+                <div className="flex flex-col md:flex-row items-center justify-center border-b-2 border-gray-200 pb-2">
+                    <div className="w-[30%] flex-auto p-4 mr-10">
                     <img src="https://i.pinimg.com/originals/2d/af/f8/2daff8e0823e51dd752704a47d5b795c.png" className=" rounded-full shadow-lg mr-4 " />
                     </div>
                 
@@ -45,8 +45,8 @@ function Cart() {
                 </div>
             
             </div>
-            <div className="flex-auto w-[25%] flex flex-col gap-3 border-2 p-5    border-gray-200 rounded-md shadow-xl">
-                <h1 className="text-center text-[30px] font-light">ORDER SUMMARY</h1>
+            <div className="flex-auto w-[100%] md:w-[25%] flex flex-col gap-3 border-2 p-5    border-gray-200 rounded-md shadow-xl">
+                <h1 className="text-center text-[30px] font-light mb-3">ORDER SUMMARY</h1>
                 <div className="flex justify-start">
                     <span className="flex-auto w-[80%]">SubTotal:</span>
                     <span className="flex-auto w-[20%]">$ 80</span>
@@ -59,7 +59,7 @@ function Cart() {
                     <span className="flex-auto w-[80%]">Shipping dicount:</span>
                     <span className="flex-auto w-[20%]">-$ 5.90</span>
                 </div>
-                <div className="flex justify-start font-bold">
+                <div className="flex justify-start font-bold text-lg">
                     <span className="flex-auto w-[80%] ">TOTAL:</span>
                     <span className="flex-auto w-[20%]">$ 80</span>
                 </div>
