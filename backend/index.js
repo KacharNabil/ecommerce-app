@@ -2,7 +2,8 @@ const { log } = require("console");
 const express = require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
-const userRoutes = require('./routes/user.js')
+const userRoutes = require('./routes/user.js');
+const authRoutes = require('./routes/auth.js');
 const app = express();
 dotenv.config();
 
@@ -12,6 +13,7 @@ mongoose.connect(process.env.MONGO_URL)
 ;
 app.use(express.json());
 app.use('/',userRoutes);
+app.use('/auth',authRoutes);
 
 app.listen(5000 , ()=>{
  console.log("the server is established");
