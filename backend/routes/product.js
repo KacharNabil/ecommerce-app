@@ -34,7 +34,7 @@ router.put('/:id', verifyTokenAndAdmin , async (req,res)=>{
     }
 });
 
-router.delete('/:id', verifyTokenAndAuthorization, async (req,res)=>{
+router.delete('/:id', verifyTokenAndAdmin, async (req,res)=>{
     try{
         await Product.findByIdAndDelete(req.params.id);
         res.status(200).json('this Product has been deleted');
@@ -44,7 +44,7 @@ router.delete('/:id', verifyTokenAndAuthorization, async (req,res)=>{
    
 });
 
-router.get('/:id' , verifyTokenAndAdmin , async (req,res)=>{
+router.get('/find/:id'  , async (req,res)=>{
 
     try{
       const product = await Product.findById(req.params.id);
@@ -55,7 +55,7 @@ router.get('/:id' , verifyTokenAndAdmin , async (req,res)=>{
     }
 })
 
-router.get('/',verifyTokenAndAdmin, async (req,res)=>{
+router.get('/', async (req,res)=>{
     const qNew = req.query.new;
     const qCategory = req.query.category;
 
