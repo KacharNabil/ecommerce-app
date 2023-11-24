@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import SearchIcon from '@mui/icons-material/Search';
+import { Link } from 'react-router-dom';
+
 
 function Product({ item }) {
   const [isShown, setIsShown] = useState(false);
@@ -21,7 +23,9 @@ function Product({ item }) {
             <AddShoppingCartIcon />
           </div>
           <div className='text-gray-500 bg-white p-1 rounded-full cursor-pointer transform transition-transform delay-75 ease hover:scale-125'>
+            <Link to={`/product/${item._id}`}>
            < SearchIcon />
+           </Link>
           </div>
           <div className='text-gray-500 bg-white p-1 rounded-full cursor-pointer transform transition-transform delay-75 ease hover:scale-125'>
             

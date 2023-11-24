@@ -3,14 +3,39 @@ import Announcement from '../components/Announcement'
 import NavBar from '../components/NavBar'
 import NewsLetter from '../components/NewsLetter'
 import Footer from '../components/Footer'
-import { useState } from 'react'
-
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
+import axios from 'axios';
+import { publicRequest } from '../../requestMethod'
+import { addProduct } from '../../redux/cartRedux';
+import { useDispatch } from 'react-redux';
 
 function Product() {
 
-    const [count,setCount]=useState(0);
+    const location = useLocation();
+    const id =location.pathname.split('/')[2];
+    const [product,setProduct]=useState({});
+    const [size,setSize] = useState('');
+    const [color,setColor] = useState('');
+    const dispatch = useDispatch();
+    
+    useEffect(()=>{
+        const getProduct =async ()=>{
+            try{
+                const res = await publicRequest.get('/products/find/'+id);
+                setProduct(res.data);
+
+            }catch(err){
+
+            }
+        }
+
+    },[id]);
+    
+
+    const [count,setCount]=useState(1);
     const handlClick = () => {
-        if(count==0){
+        if(count==1){
             setCount(count)
         }
         else{
@@ -18,6 +43,9 @@ function Product() {
         }
     }
 
+    const handleClick = ()=>{
+        dispatch(addProduct({...product,size,color,quantity}));
+    }
 
   return (
     <div>
@@ -26,37 +54,38 @@ function Product() {
         <NavBar/>
         <div className='flex flex-col md:flex-row pt-8 px-8 '>
             <div className='flex-1'>
-            <img src={productimage}  className='w-100 h-[60%] mx-auto' />
+            <img src={product.img}  className='w-100 h-[60%] mx-auto' />
             </div>
             
             <div className='flex-1 '>
-                <h1 className='font-normal text-[50px] mb-5'>Jean's Shirt</h1>
-                <p className=' tracking-wider font-light text-lg mb-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                     incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
-                    , quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                <h1 className='font-normal text-[50px] mb-5'>{product.title}</h1>
+                <p className=' tracking-wider font-light text-lg mb-5'>
+                    {product.desc}
                 </p>
-                <span className='font-light tracking-wider text-[40px] '>$ 50</span>
+                <span className='font-light tracking-wider text-[40px] '>$ {product.price}</span>
                 <div className='flex items-center mt-5'>
                     <div className='mr-9 flex items-center'>
                         <span className='font-light text-lg mr-3'>
                             Color
                         </span>
-                        <div className='bg-blue-900 h-6 w-6 rounded-full cursor-pointer mr-3'></div>
-                        <div className='bg-gray-600 h-6 w-6 rounded-full cursor-pointer mr-3'></div>
-                        <div className='bg-gray-200 h-6 w-6 rounded-full cursor-pointer mr-3'></div>
+                       {product.color?.map(c=>(
+                        <div className={`bg-${c}-600 h-6 w-6 rounded-full cursor-pointer mr-3`} key={c} onClick={()=>setColor(c)}></div>
+                       ))}
+                      
+                     
                         
                     </div>
                     <div>
                     <span className='font-light text-lg mr-3'>
                         Size
                     </span>
-                        <select className='bg-gray-200 rounded-md p-1 font-medium' >
-                            <option value="" disabled selected>Size</option>
-                            <option value="">XS</option>
-                            <option value="">S</option>
-                            <option value="">M</option>
-                            <option value="">L</option>
-                            <option value="">XL</option>
+                        <select className='bg-gray-200 rounded-md p-1 font-medium' onChange={(e)=>setSize(e.target.value)} >
+                            <option value="" disabled >Size</option>
+                           {product.size?.map(s=>(
+                                   <option key={s}>{s}</option>
+                           )
+                            
+                            )}
                         </select>
                     </div>
                 </div>
@@ -73,7 +102,7 @@ function Product() {
                         </div>
                     </div>
                     <div>
-                        <button className=' bg-transparent border-2 p-2 rounded-md shadow-md font-light border-gray-300 hover:bg-gray-200 hover:border-none '>ADD TO CART</button>
+                        <button className=' bg-transparent border-2 p-2 rounded-md shadow-md font-light border-gray-300 hover:bg-gray-200 hover:border-none ' onClick={handleClick}>ADD TO CART</button>
                     </div>
 
                 </div>

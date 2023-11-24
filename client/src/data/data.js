@@ -28,18 +28,21 @@ export const sliderData = [
 export const categories = [
     {
         id:1,
-        title:"SUMMER OFFER",
-        img:shirt
+        title:"Shirt",
+        img:shirt,
+        cat:'shirt'
     },
     {
         id:2,
-        title:"WINTER OFFER",
+        title:"LongWear",
         img:longwear,
+        cat:'longwear'
     },
     {       
         id:3,
-        title:"WINTER OFFER",
+        title:"Jackets",
         img:jackets,
+        cat:'jackets'
     }
 
 ];
