@@ -44,7 +44,7 @@ function Product() {
     }
 
     const handleClick = ()=>{
-        dispatch(addProduct({...product,size,color,quantity}));
+        dispatch(addProduct({...product,size,color,count}));
     }
 
   return (

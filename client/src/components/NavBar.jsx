@@ -2,6 +2,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import { Badge } from '@mui/material';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import LocalGroceryStoreOutlinedIcon from '@mui/icons-material/LocalGroceryStoreOutlined';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
     const quantity = useSelector(state=>state.cart.quantity);
@@ -23,9 +24,11 @@ function NavBar() {
                 <div className='md:ml-5 cursor-pointer'>Register</div>
                 <div className='ml-3 md:ml-5 cursor-pointer'>Sign In</div>
                 <div className='ml-3 md:ml-5 cursor-pointer'>
+                    <Link to='/cart'>
                     <Badge badgeContent={quantity} color="primary">
                         < LocalGroceryStoreOutlinedIcon />
                     </Badge>
+                    </Link>
                 </div>
             </div>
         </div>
